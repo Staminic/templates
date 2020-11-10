@@ -1,0 +1,134 @@
+// Copyright (C) YOOtheme GmbH, YOOtheme Proprietary Use License (http://www.yootheme.com/license) */
+
+//
+// Component: Navbar
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+@navbar-background:                                @global-background;
+@navbar-color:                                     @global-alt-color;
+@navbar-link-color:                                @global-primary-color;
+@navbar-link-hover-color:                          @global-secondary-color;
+
+@navbar-nav-padding-horizontal:                    12px;
+
+@navbar-nav-height:                                100px;
+@navbar-nav-line-height:                           @navbar-nav-height;
+@navbar-nav-color:                                 @global-alt-color;
+@navbar-nav-font-size:                             17px;
+@navbar-nav-font-family:                           @global-heading-font-family;
+@navbar-nav-hover-background:                      rgba(0,0,0,0);
+@navbar-nav-hover-color:                           @global-primary-color;
+@navbar-nav-onclick-background:                    rgba(0,0,0,0);
+@navbar-nav-onclick-color:                         @global-primary-color;
+@navbar-nav-active-background:                     rgba(0,0,0,0);
+@navbar-nav-active-color:                          @navbar-nav-hover-color;
+@navbar-nav-subtitle-font-size:                    12px;
+@navbar-nav-subtitle-offset:                       4px;
+
+@navbar-brand-font-size:                           30px;
+@navbar-brand-color:                               #444;
+@navbar-brand-hover-color:                         @global-alt-color;
+
+@navbar-toggle-icon:                               "";
+@navbar-toggle-color:                              @global-alt-color;
+@navbar-toggle-hover-color:                        @global-primary-color;
+
+//
+// New
+//
+
+@navbar-nav-border-width:                          2px;
+@navbar-nav-border:                                @navbar-nav-hover-color;
+@navbar-content-padding-horizontal:                @global-margin;
+
+@navbar-font-style:                                @global-font-style;
+
+@navbar-toggle-height:                             35px;
+
+@navbar-nav-padding-large-horizontal:              20px;
+
+
+// Component
+// ========================================================================
+
+.hook-navbar() { font-style: @navbar-font-style; }
+
+
+// Sub-object: `uk-navbar-nav`
+// ========================================================================
+
+.hook-navbar-nav() {
+
+    &:before {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: @navbar-nav-border-width;
+        background: @navbar-nav-border;
+        -webkit-transition: width .3s;
+        transition: width .3s;
+    }
+
+}
+
+// Hover
+.hook-navbar-nav-hover() {
+
+    &:before { width: 100%; }
+
+}
+
+// OnClick
+.hook-navbar-nav-onclick() {}
+
+// Active
+.hook-navbar-nav-active() {
+
+    &:before { width: 100%; }
+
+}
+
+
+// Sub-object: `uk-navbar-content`
+// ========================================================================
+
+.hook-navbar-content() { padding: 0 @navbar-content-padding-horizontal; }
+
+
+// Miscellaneous
+// ========================================================================
+
+.hook-navbar-misc() {
+
+    .uk-navbar-toggle {
+        height: @navbar-toggle-height;
+        background: url("@{global-image-path}/@{global-style}/icon-toggler.svg") no-repeat 50% 0;
+    }
+
+    .uk-navbar-nav > li {
+        padding-left: @navbar-nav-padding-horizontal;
+        padding-right: @navbar-nav-padding-horizontal;
+    }
+
+    .uk-navbar-nav > li > a {
+        position: relative;
+        padding: 0;
+    }
+
+    @media (min-width: @breakpoint-large) {
+
+        .uk-navbar-nav > li {
+            padding-left: @navbar-nav-padding-large-horizontal;
+            padding-right: @navbar-nav-padding-large-horizontal;
+        }
+
+    }
+
+    .uk-navbar-brand { padding-left: 0; }
+
+}

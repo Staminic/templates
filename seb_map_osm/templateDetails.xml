@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="template" version="2.5" method="upgrade">
+	<name>seb_map_osm</name>
+	<author>Octopoos</author>
+	<authorEmail>contact@seblod.com</authorEmail>
+	<authorUrl>https://www.seblod.com</authorUrl>
+	<copyright>Copyright (C) 2009 - 2018 SEBLOD. All Rights Reserved.</copyright>
+	<license>GNU General Public License version 2 or later.</license>
+	<creationDate>21 Nov 2019</creationDate>
+	<description>SEBLOD 3.x - www.seblod.com // by Octopoos - www.octopoos.com</description>
+	<version>2.0.0</version>
+	
+	<files>
+		<folder>css</folder>
+		<folder>js</folder>
+		<folder>fields</folder>
+		<folder>images</folder>
+		<folder>includes</folder>
+		<folder>languages</folder>
+		<folder>positions</folder>
+		<folder>variations</folder>
+		<folder>tmpl</folder>
+		
+		<filename>config.php</filename>
+		<filename>index.php</filename>
+		<filename>template_picker.png</filename>
+		<filename>template_preview.png</filename>
+		<filename>template_thumbnail.png</filename>
+		<filename>templateDetails.xml</filename>
+		<filename>index.html</filename>
+	</files>
+	
+	<languages folder="languages">
+			<language tag="en-GB">en-GB/en-GB.tpl_seb_map_osm.ini</language>
+			<language tag="fr-FR">fr-FR/fr-FR.tpl_seb_map_osm.ini</language>
+	</languages>
+	
+	<positions>		
+		<position>latitude</position>
+		<position>longitude</position>
+		<position>markericon</position>
+		<position>infowindow</position>
+	</positions>
+	
+	<config addfieldpath="/libraries/cck/construction/field">
+		<fields name="params">
+			<fieldset name="map" label="TPL_SEB_MAP_OSM_LEGEND_MAP">
+				<field name="cck_client_item" type="hidden" default="0" />
+
+				<field name="map_width" type="cck" construction="more_seb_map_osm_width" default="" label="TPL_SEB_MAP_OSM_WIDTH" description="" class="inputbox" />
+				<field name="map_height" type="cck" construction="more_seb_map_osm_height" default="" label="TPL_SEB_MAP_OSM_HEIGHT" description="" class="inputbox" />
+				<field name="map_lat" type="cck" construction="more_seb_map_osm_lat" default="" label="TPL_SEB_MAP_OSM_LAT" description="" class="inputbox" />
+				<field name="map_lng" type="cck" construction="more_seb_map_osm_lng" default="" label="TPL_SEB_MAP_OSM_LNG" description="" class="inputbox" />
+
+				<field name="map_zoom" type="cck" construction="more_seb_map_osm_zoom" default="" label="TPL_SEB_MAP_OSM_ZOOM_DEFAULT" description="" class="inputbox" />
+
+			</fieldset>
+			<fieldset name="markers" label="TPL_SEB_MAP_OSM_LEGEND_MARKERS">
+				<field name="map_autozoom" type="cck" construction="core_bool" default="0" label="TPL_SEB_MAP_OSM_MARKER_AUTOZOOM" description=""
+				       class="inputbox" />
+			</fieldset>
+			<fieldset name="markers_clustering" label="TPL_SEB_MAP_OSM_LEGEND_MARKERS_CLUSTERING">
+				<field name="map_marker_clustering" type="cck" construction="core_bool" default="0" label="TPL_SEB_MAP_OSM_MARKER_CLUSTERING" description=""
+				       	class="inputbox" />
+		       	<field name="map_marker_clustering_maxzoom" type="cck" construction="more_seb_map_osm_marker_clustering_maxzoom" default="15" label="TPL_SEB_MAP_OSM_MARKER_CLUSTERING_MAX_ZOOM" description="" class="inputbox"
+				js_format="raw" />
+			</fieldset>
+
+			<fieldset name="infowindows" label="TPL_SEB_MAP_OSM_LEGEND_INFOWINDOWS">
+				<field name="map_infowindow_openevent" type="cck" construction="more_seb_map_osm_infowindow_openevent" default="" label="TPL_SEB_MAP_OSM_INFOWINDOW_OPEN_EVENT" description="" class="inputbox" />
+			</fieldset>
+		</fields>
+	</config>
+</extension>

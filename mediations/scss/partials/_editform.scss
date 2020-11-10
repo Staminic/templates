@@ -1,0 +1,124 @@
+
+.cck_forms {
+  &.cck_site {
+    margin: $spacer * 1.5 0;
+  }
+}
+
+.cck_cgx_form {
+  margin-bottom: $spacer * 1.5;
+
+  .cck_forms {
+    &.cck_site {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+  }
+}
+
+.mediation-edit {
+  margin-bottom: $spacer * 2;
+  padding-bottom: $spacer * 2;
+  border-bottom: 1px solid $sand;
+}
+
+.mediation-institution {
+  margin-bottom: $spacer * 3;
+  color: $white;
+  font-weight: $font-weight-bold;
+
+  &.card {
+    background-color: $primary;
+  }
+
+  [class*="px-"] {
+    background-image: url('../img/info-circle-solid.svg');
+    background-position: $spacer $spacer;
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-attachment: scroll;
+  }
+
+  .select2-container--default
+    .select2-results__option--highlighted[aria-selected] {
+      background-color: $black !important;
+    }
+}
+
+#cck1r_form_md_mediation_vignette {
+  > input {
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+  }
+
+  span[title*="supprimer"] {
+    display: inline-flex;
+
+    &::before {
+      content: "\f1f8";
+      display: inline-block;
+      font-family: "Font Awesome 5 Free";
+      font-weight: 900;
+      margin-right: $spacer * .25;
+    }
+  }
+
+  .cck_label_upload_image_cropping {
+    display: none;
+  }
+}
+
+#collection-group-form-md_mediation_medias__0 {
+  > input {
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+  }
+
+  span[title*="delete"] {
+    display: inline-flex;
+
+    &::before {
+      content: "\f1f8";
+      display: inline-block;
+      font-family: "Font Awesome 5 Free";
+      font-weight: 900;
+      margin-right: $spacer * .25;
+    }
+  }
+
+  label {
+    margin: 0;
+  }
+}
+
+body:not(.loggedin) {
+  .user-activation {
+    display: none !important;
+  }
+}
+
+.contributeur {
+  .cck_forms.cck_site {
+    margin-top: 0 !important;
+  }
+
+  #cck1r_user_block {
+    #cck1r_label_user_block {
+      text-align: left;
+    }
+
+    #cck1r_form_user_block {
+      margin-left: -1rem;
+    }
+  }
+
+  .cck_cgx_form {
+    margin-bottom: 0;
+  }
+}
+
+.help {
+  margin-top: -$spacer;
+  font-weight: $font-weight-bold;
+  color: rgba(0,0,0,.5);
+}

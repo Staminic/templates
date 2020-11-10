@@ -1,0 +1,115 @@
+
+.navbar-collapse {
+  flex-grow: 0;
+}
+
+[class*="navbar-expand-"] {
+  .navbar-nav {
+    padding-top: $spacer;
+
+    @include media-breakpoint-up(lg) {
+      padding-top: 0;
+    }
+
+    .nav-link {
+      padding-right: $btn-padding-x;
+      padding-left: $btn-padding-x;
+      font-weight: $font-weight-bold;
+      color: $white;
+      text-transform: uppercase;
+
+      @include media-breakpoint-up(md) {
+        padding-right: .5rem;
+        padding-left: .5rem;
+      }
+
+      @include media-breakpoint-up(xl) {
+        padding-right: 1rem;
+        padding-left: 1rem;
+      }
+    }
+  }
+}
+
+.navbar-toggler {
+  background-color: $white;
+  border-color: $white;
+  border-radius: 0;
+}
+
+.navbar-toggler-icon {
+  background-image: url('../img/bars-solid.svg');
+}
+
+.private-menu {
+  .nav-item {
+    margin-right: $spacer;
+
+    .nav-link {
+      &::before {
+        content: "\f044";
+        display: inline-block;
+        margin-right: $spacer * .5;
+        font-family: 'Font Awesome 5 Free';
+      }
+    }
+
+    &.item-115 {
+      margin-right: 0;
+      margin-left: auto !important;
+
+      .nav-link {
+        color: $black;
+        font-weight: $font-weight-bold;
+        text-transform: uppercase;
+
+        &::before {
+          content: "\f007";
+          display: inline-block;
+          margin-right: $spacer * .5;
+          font-family: 'Font Awesome 5 Free';
+          font-weight: 900;
+        }
+      }
+    }
+
+    &.item-131 {
+      margin-right: 0;
+
+      .nav-link {
+        color: $black;
+        font-weight: $font-weight-bold;
+        text-transform: uppercase;
+
+        &::before {
+          content: "\f011";
+          display: inline-block;
+          margin-right: $spacer * .5;
+          font-family: 'Font Awesome 5 Free';
+          font-weight: 900;
+        }
+      }
+    }
+  }
+}
+
+.footer {
+  .nav-link {
+    color: $white;
+    text-transform: uppercase;
+  }
+}
+
+.social-network {
+  .fa-circle {
+    color: $white;
+  }
+
+  .fab {
+    color: $black;
+  }
+}
+
+.footer-below {
+  background-color: $white;
+}

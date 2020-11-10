@@ -1,0 +1,25 @@
+
+  .items-list {
+    background-image: url('../img/art-gallery.jpg');
+    background-color: $white;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: scroll;
+
+    &::before {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-color: rgba(255,255,255,.67);
+    }
+
+    .more {
+      position: relative;
+      text-align: center;
+    }
+  }

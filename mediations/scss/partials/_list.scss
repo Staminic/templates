@@ -1,0 +1,106 @@
+
+.alpha-index {
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    background-color: $white;
+
+    li {
+      flex: 1 0 auto;
+      text-align: center;
+    }
+  }
+
+  a {
+    display: block;
+    padding: $spacer * .375 $spacer * .5;
+    color: $black;
+    font-size: $font-size-sm;
+
+    &:hover {
+      color: $black;
+      text-decoration: none;
+    }
+  }
+}
+
+.list-institutions {
+  @extend .inner;
+
+  a {
+    color: $black;
+    text-decoration: underline;
+
+    &::after {
+      content: "\f105";
+      display: inline-block;
+      margin-left: 0.25rem;
+      vertical-align: middle;
+      font-family: "Font Awesome 5 Free";
+      font-weight: 900;
+    }
+  }
+}
+
+.action-search {
+  .form-group {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    .button + a {
+      order: -1;
+    }
+  }
+}
+
+.list-items {
+  .card-body {
+    padding-bottom: 0;
+  }
+}
+
+// Map
+
+.institutions {
+  .full-map {
+    [id*="_map"][style] {
+      height: 600px !important;
+    }
+  }
+}
+
+div[id*="_form_md_mediation_order"] {
+  margin-bottom: 0;
+}
+
+#md_mediation_order {
+  option {
+    display: none;
+
+    &:nth-last-child(1),
+    &:nth-last-child(2) {
+      display: block;
+    }
+  }
+}
+
+div.pagination {
+  display: flex;
+  margin-bottom: $spacer;
+  align-items: center;
+
+  .counter {
+    @extend .small;
+    margin: 0 $spacer;
+    font-weight: $font-weight-bold;
+  }
+
+  ul.pagination {
+    margin: 0;
+  }
+}

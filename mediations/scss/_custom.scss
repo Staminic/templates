@@ -1,0 +1,22 @@
+@import "partials/layout";
+@import "partials/styles";
+@import "partials/menus";
+@import "partials/homepage";
+@import "partials/list";
+@import "partials/article";
+@import "partials/editform";
+
+.alert {
+  margin-top: 1rem;
+  background-color: #EBFF00;
+  color: $black !important;
+
+  .close {
+    cursor: pointer;
+  }
+}
+
+iframe,
+.mce-item-iframe {
+  max-width: 100%;
+}

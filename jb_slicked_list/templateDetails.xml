@@ -1,0 +1,460 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="template" version="3.8" method="upgrade">
+    <name>jb_slicked_list</name>
+    <author>Jon Buckner</author>
+    <authorEmail>TBC</authorEmail>
+    <authorUrl>TBC</authorUrl>
+    <copyright>Copyright (C) 2013 SEBLOD. All Rights Reserved.</copyright>
+    <license>GNU General Public License version 2 or later.</license>
+    <creationDate>February 2017</creationDate>
+    <description>JB SLICKED LIST // by Jon Buckner, a template based on Seblod’s LIST TEMPLATE  | SEBLOD 3.x - www.seblod.com // by Octopoos - www.octopoos.com | SLICK 1.9.0 // by  Ken Wheeler. This template creates the necessary markup for the modal option of these frameworks: Twitter Bootstrap 2|3|4, Zurb Foundation 5|6, and YooTheme UiKit 2|3. There is also a blank option to define your own modal layout. Be aware that you to define the Framework of choice AND the version number. You will have options of 1 - 9, but make sure you select the correct version as listed here (Twitter Bootstrap 2|3|4, Zurb Foundation 5|6, and YooTheme UiKit 2|3). Documentation comes with the template and you can get support via the Seblod Forum.</description>
+    <version>3.6.3</version>
+
+
+    <files>
+        <folder>css</folder>
+        <folder>js</folder>
+        <folder>fields</folder>
+        <folder>images</folder>
+        <folder>includes</folder>
+        <folder>languages</folder>
+        <folder>positions</folder>
+        <folder>variations</folder>
+
+        <filename>config.php</filename>
+        <filename>index.php</filename>
+        <filename>template_picker.png</filename>
+        <filename>template_preview.png</filename>
+        <filename>template_thumbnail.png</filename>
+        <filename>templateDetails.xml</filename>
+        <filename>index.html</filename>
+    </files>
+
+    <languages folder="languages">
+        <language tag="en-GB">en-GB/en-GB.tpl_jb_slicked_list.ini</language>
+        <language tag="fr-FR">fr-FR/fr-FR.tpl_jb_slicked_list.ini</language>
+    </languages>
+
+    <positions>
+        <position>before</position>
+        <position>above</position>
+        <position>open</position>
+        <position>element</position>
+        <position>hidden</position>
+        <position>close</position>
+        <position>below</position>
+        <position>after</position>
+        <position>modal</position>
+        <position>clear</position>
+    </positions>
+
+    <config addfieldpath="/libraries/cck/construction/field">
+        <fields name="params">
+            <fieldset name="style" label="TPL_JB_SLICKED_LIST_SEB_DEFAULTS_LEGEND">
+                <field name="cck_client_item" type="hidden" default="0" />
+                <field name="auto_clean" type="list" default="0" label="TPL_JB_SLICKED_LIST_SEB_AUTOCLEAN_LABEL" description="TPL_JB_SLICKED_LIST_SEB_AUTOCLEAN_DESC" class="inputbox">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                    <option value="2">COM_CCK_ALWAYS</option>
+                </field>
+                <field name="list_display" type="cck" construction="core_list_display" default="0" label="TPL_JB_SLICKED_LIST_SEB_DISPLAY" description="" class="inputbox" cck_attributes="data-cck_client_item='0=0,1=1,2=0'" />
+                <field name="class" type="cck" construction="core_dev_text" default="" label="TPL_JB_SLICKED_LIST_SEB_CLASS_LABEL" description="TPL_JB_SLICKED_LIST_SEB_CLASS_DESC" class="inputbox" />
+                <field name="attributes" type="cck" construction="core_dev_text" default="" label="TPL_JB_SLICKED_LIST_SEB_ATTRIBUTES_LABEL" description="TPL_JB_SLICKED_LIST_SEB_ATTRIBUTES_DESC" cck_rows="1" class="inputbox" />
+                <field name="field_label" type="cck" construction="core_field_label" default="1" label="TPL_JB_SLICKED_LIST_SEB_SHOW_FIELD_LABEL_LABEL" description="TPL_JB_SLICKED_LIST_SEB_SHOW_FIELD_LABEL_DESC" class="inputbox" />
+                <field name="field_description" type="cck" construction="core_field_description" default="0" label="TPL_JB_SLICKED_LIST_SEB_SHOW_FIELD_DESCRIPTION_LABEL" description="TPL_JB_SLICKED_LIST_SEB_SHOW_FIELD_DESCRIPTION_DESC" class="inputbox" />
+            </fieldset>
+
+            <fieldset name="output_options_legend" label="TPL_JB_SLICKED_LIST_OUTPUT_ELEMENTS_LEGEND">
+                <field name="output_elementType" type="list" default="0" label="TPL_JB_SLICKED_LIST_OUTPUT_ELEMENTS_LABEL" description="TPL_JB_SLICKED_LIST_OUTPUT_ELEMENTS_DESC" >
+                    <option value="0">div</option>
+                    <option value="1">ul</option>
+                    <option value="2">ol</option>
+					<option value="div_article">COM_CCK_DIV_ARTICLE</option>
+					<option value="div_div">COM_CCK_DIV_DIV</option>
+					<option value="ol_li">COM_CCK_OL_LI</option>
+					<option value="section_article">COM_CCK_SECTION_ARTICLE</option>
+					<option value="ul_li">COM_CCK_UL_LI</option>
+                </field>
+            </fieldset>
+
+            <fieldset name="attributes_options_legend" label="TPL_JB_SLICKED_LIST_ATTRIBUTES_OPTIONS_LEGEND">
+                <field name="attributes_parent" type="text" default="" label="TPL_JB_SLICKED_LIST_ATTRIBUTES_PARENT_LABEL" description="TPL_JB_SLICKED_LIST_ATTRIBUTES_PARENT_DESC" filter="" />
+                <field name="attributes_child" type="text" default="" label="TPL_JB_SLICKED_LIST_ATTRIBUTES_CHILD_LABEL" description="TPL_JB_SLICKED_LIST_ATTRIBUTES_CHILD_DESC" filter="" />
+            </fieldset>
+
+            <fieldset name="modal_options_legend" label="TPL_JB_SLICKED_LIST_MODAL_OPTIONS_LEGEND">
+                <field name="modal_framework" type="list" default="0" label="TPL_JB_SLICKED_LIST_MODAL_FRAMEWORK_LABEL" description="TPL_JB_SLICKED_LIST_MODAL_FRAMEWORK_DESC" class="inputbox">
+                    <option value="0">JNone</option>
+                    <option value="tb">Twitter Bootstrap</option>
+                    <option value="zf">Zurb Foundation</option>
+                    <option value="yu">YooTheme UIKit</option>
+                    <option value="x">Blank</option>
+                </field>
+                <field name="modal_version" type="list" default="0" label="TPL_JB_SLICKED_LIST_MODAL_VERSION_LABEL" description="TPL_JB_SLICKED_LIST_MODAL_VERSION_DESC" class="inputbox">
+                    <option value="0">JNone</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                </field>
+                <field name="modal_uk_modal_body" type="list" default="0" label=".uk-modal-body Placement" description="I had .uk-modal-dialog.uk-modal-body. It should be just .uk-modal-dialog" class="inputbox">
+                    <option value="0">.uk-modal-dialog.uk-modal-body</option>
+                    <option value="1">.uk-modal-dialog .uk-modal-body</option>
+                    <option value="2">.uk-modal-dialog</option>
+                </field>
+                <field name="modal_identifier" type="text" default="" label="TPL_JB_SLICKED_LIST_MODAL_IDENTIFIER_LABEL" description="TPL_JB_SLICKED_LIST_MODAL_IDENTIFIER_DESC" filter="" />
+                <field name="modal_classesParent" type="text" default="" label="TPL_JB_SLICKED_LIST_MODAL_CLASSESPARENT_LABEL" description="TPL_JB_SLICKED_LIST_MODAL_CLASSESPARENT_DESC" filter="" />
+                <field name="modal_ariaLabelledBy" type="text" default="" label="TPL_JB_SLICKED_LIST_MODAL_ARIALABELLEDBY_LABEL" description="TPL_JB_SLICKED_LIST_MODAL_ARIALABELLEDBY_DESC" filter="" />
+                <field name="modal_ariaHidden" type="list" default="0" label="TPL_JB_SLICKED_LIST_MODAL_ARIAHIDDEN_LABEL" description="TPL_JB_SLICKED_LIST_MODAL_ARIAHIDDEN_DESC" class="inputbox">
+                    <option value="0">JNO</option>
+                    <option value="1">JTrue</option>
+                    <option value="2">JFalse</option>
+                </field>
+            </fieldset>
+
+
+            <fieldset name="css_options_legend" label="TPL_JB_SLICKED_LIST_CSS_OPTIONS_LEGEND">
+                <field name="css_fileLoad" type="list" default="1" label="TPL_JB_SLICKED_LIST_CSS_FILELOAD_LABEL" description="TPL_JB_SLICKED_LIST_CSS_FILELOAD_DESC" >
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+                <field name="css_themeFileLoad" type="list" default="1" label="TPL_JB_SLICKED_LIST_CSS_THEMEFILELOAD_LABEL" description="TPL_JB_SLICKED_LIST_CSS_THEMEFILELOAD_DESC" >
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+                <field name="css_slickIdentifier" type="text" default="my-slick-list" label="TPL_JB_SLICKED_LIST_CSS_SLICKIDENTIFIER_LABEL" description="TPL_JB_SLICKED_LIST_CSS_CLASSIDENTIFIER_DESC" filter="" />
+                <field name="css_classesParent" type="text" default="" label="TPL_JB_SLICKED_LIST_CSS_CLASSESPARENT_LABEL" description="TPL_JB_SLICKED_LIST_CSS_CLASSESPARENT_DESC" filter="" />
+                <field name="css_classesChild" type="text" default="" label="TPL_JB_SLICKED_LIST_CSS_CLASSESCHILD_LABEL" description="TPL_JB_SLICKED_LIST_CSS_CLASSESCHILD_DESC" />
+            </fieldset>
+
+            <fieldset name="js_options_legend" label="TPL_JB_SLICKED_LIST_JS_OPTIONS_LEGEND">
+                <field name="js_fileLoad" type="list" default="1" label="TPL_JB_SLICKED_LIST_JS_FILELOAD_LABEL" description="TPL_JB_SLICKED_LIST_JS_FILELOAD_DESC" >
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+                <field name="js_apply" type="list" default="1" label="TPL_JB_SLICKED_LIST_JS_APPLY_LABEL" description="TPL_JB_SLICKED_LIST_JS_APPLY_DESC" >
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+                <field name="js_customApply" type="list" default="0" label="TPL_JB_SLICKED_LIST_JS_CUSTOMAPPLY_LABEL" description="TPL_JB_SLICKED_LIST_JS_CUSTOMAPPLY_DESC" >
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+                <field name="js_responsive1Enable" type="list" default="1" label="TPL_JB_SLICKED_LIST_JS_RESPONSIVE1ENABLE_LABEL" description="TPL_JB_SLICKED_LIST_JS_RESPONSIVE1ENABLE_DESC" >
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+                <field name="js_responsive2Enable" type="list" default="1" label="TPL_JB_SLICKED_LIST_JS_RESPONSIVE2ENABLE_LABEL" description="TPL_JB_SLICKED_LIST_JS_RESPONSIVE2ENABLE_DESC" >
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+                <field name="js_responsive3Enable" type="list" default="0" label="TPL_JB_SLICKED_LIST_JS_RESPONSIVE3ENABLE_LABEL" description="TPL_JB_SLICKED_LIST_JS_RESPONSIVE3ENABLE_DESC" >
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+                <field name="js_responsive4Enable" type="list" default="0" label="TPL_JB_SLICKED_LIST_JS_RESPONSIVE4ENABLE_LABEL" description="TPL_JB_SLICKED_LIST_JS_RESPONSIVE4ENABLE_DESC" >
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+                <field name="js_responsive5Enable" type="list" default="0" label="TPL_JB_SLICKED_LIST_JS_RESPONSIVE5ENABLE_LABEL" description="TPL_JB_SLICKED_LIST_JS_RESPONSIVE5ENABLE_DESC" >
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+            </fieldset>
+
+            <fieldset name="slick_accessibility_legend" label="TPL_JB_SLICKED_LIST_SLICK_ACCESSIBILITY_LEGEND">
+                <field name="slick_accessibility" type="list" default="true" label="TPL_JB_SLICKED_LIST_SLICK_ACCESSIBILITY_LABEL" description="TPL_JB_SLICKED_LIST_SLICK_ACCESSIBILITY_DESC" filter="">
+                    <option value="false">JFalse</option>
+                    <option value="true">JTrue</option>
+                </field>
+            </fieldset>
+
+            <fieldset name="slick_adaptiveHeight_legend" label="TPL_JB_SLICKED_LIST_SLICK_ADAPTIVEHEIGHT_LEGEND">
+                <field name="slick_adaptiveHeight" type="list" default="false" label="TPL_JB_SLICKED_LIST_SLICK_ADAPTIVEHEIGHT_LABEL" description="TPL_JB_SLICKED_LIST_SLICK_ADAPTIVEHEIGHT_DESC" filter="">
+                    <option value="false">JFalse</option>
+                    <option value="true">JTrue</option>
+                </field>
+            </fieldset>
+
+            <fieldset name="slick_autoplay_legend" label="TPL_JB_SLICKED_LIST_SLICK_AUTOPLAY_LEGEND">
+                <field name="slick_autoplay" type="list" default="true" label="TPL_JB_SLICKED_LIST_SLICK_AUTOPLAY_LABEL" description="TPL_JB_SLICKED_LIST_SLICK_AUTOPLAY_DESC" filter="">
+                    <option value="false">JFalse</option>
+                    <option value="true">JTrue</option>
+                </field>
+            </fieldset>
+
+            <fieldset name="slick_autoplaySpeed_legend" label="TPL_JB_SLICKED_LIST_SLICK_AUTOPLAYSPEED_LEGEND">
+                <field name="slick_autoplayspeed" type="text" default="3000" label="TPL_JB_SLICKED_LIST_SLICK_AUTOPLAYSPEED_LABEL" description="TPL_JB_SLICKED_LIST_SLICK_AUTOPLAYSPEED_DESC" class="inputbox" size="15" />
+            </fieldset>
+
+            <fieldset name="slick_asNavFor_legend" label="TPL_JB_SLICKED_LIST_SLICK_ASNAVFOR_LEGEND">
+                <field name="slick_asNavFor" type="text" default="" label="TPL_JB_SLICKED_LIST_SLICK_ASNAVFOR_LABEL" description="TPL_JB_SLICKED_LIST_SLICK_ASNAVFOR_DESC" class="inputbox" size="15" />
+            </fieldset>
+
+            <fieldset name="slick_arrows_legend" label="TPL_JB_SLICKED_LIST_SLICK_ARROWS_LEGEND">
+                <field name="slick_arrows" type="list" default="true" label="TPL_JB_SLICKED_LIST_SLICK_ARROWS_LABEL" description="TPL_JB_SLICKED_LIST_SLICK_ARROWS_DESC" filter="">
+                    <option value="false">JFalse</option>
+                    <option value="true">JTrue</option>
+                </field>
+            </fieldset>
+
+            <fieldset name="slick_appendarrows_legend" label="TPL_JB_SLICKED_LIST_SLICK_APPENDARROWS_LEGEND">
+                <field name="slick_appendArrows" type="text" default="$(element)" label="TPL_JB_SLICKED_LIST_SLICK_APPENDARROWS_LABEL" description="TPL_JB_SLICKED_LIST_SLICK_APPENDARROWS_DESC" class="inputbox" size="15" />
+            </fieldset>
+
+            <fieldset name="slick_arrowsPrev_legend" label="TPL_JB_SLICKED_LIST_SLICK_ARROWSPREV_LEGEND">
+                <field name="slick_prevArrowElement" type="text" default="button" label="TPL_JB_SLICKED_LIST_SLICK_ARROWSPREVELEMENT_LABEL" description="TPL_JB_SLICKED_LIST_SLICK_ARROWSPREVELEMENT_DESC" class="inputbox" size="15" />
+                <field name="slick_prevArrowClass" type="text" default="slick-prev" label="TPL_JB_SLICKED_LIST_SLICK_ARROWSPREVCLASS_LABEL" description="TPL_JB_SLICKED_LIST_SLICK_ARROWSPREVCLASS_DESC" class="inputbox" size="15" />
+                <field name="slick_prevArrowText" type="text" default="Previous" label="TPL_JB_SLICKED_LIST_SLICK_ARROWSPREVTEXT_LABEL" description="TPL_JB_SLICKED_LIST_SLICK_ARROWSPREVTEXT_DESC" class="inputbox" size="15" />
+            </fieldset>
+
+            <fieldset name="slick_arrowsNext_legend" label="TPL_JB_SLICKED_LIST_SLICK_ARROWSNEXT_LEGEND">
+                <field name="slick_nextArrowElement" type="text" default="button" label="TPL_JB_SLICKED_LIST_SLICK_ARROWSNEXTELEMENT_LABEL" description="TPL_JB_SLICKED_LIST_SLICK_ARROWSNEXTELEMENT_DESC" class="inputbox" size="15" />
+                <field name="slick_nextArrowClass" type="text" default="slick-next" label="TPL_JB_SLICKED_LIST_SLICK_ARROWSNEXTCLASS_LABEL" description="TPL_JB_SLICKED_LIST_SLICK_ARROWSNEXTCLASS_DESC" class="inputbox" size="15" />
+                <field name="slick_nextArrowText" type="text" default="Next" label="TPL_JB_SLICKED_LIST_SLICK_ARROWSNEXTTEXT_LABEL" description="TPL_JB_SLICKED_LIST_SLICK_ARROWSNEXTTEXT_DESC=" class="inputbox" size="15" />
+            </fieldset>
+
+            <fieldset name="slick_centerMode_legend" label="TPL_JB_SLICKED_LIST_SLICK_CENTERMODE_LEGEND">
+                <field name="slick_centerMode" type="list" default="false" label="TPL_JB_SLICKED_LIST_SLICK_CENTERMODE_LABEL" description="TPL_JB_SLICKED_LIST_SLICK_CENTERMODE_DESC" filter="">
+                    <option value="false">JFalse</option>
+                    <option value="true">JTrue</option>
+                </field>
+            </fieldset>
+
+            <fieldset name="slick_centerPadding_legend" label="TPL_JB_SLICKED_LIST_SLICK_CENTERPADDING_LEGEND">
+                <field name="slick_centerPadding" type="text" default="50" label="TPL_JB_SLICKED_LIST_SLICK_CENTERPADDING_LABEL" description="TPL_JB_SLICKED_LIST_SLICK_CENTERPADDING_DESC" class="inputbox" size="15" />
+                <field name="slick_centerPaddingUnits" type="list" default="0" label="TPL_JB_SLICKED_LIST_SLICK_CENTERPADDINGUNITS_LABEL" description="TPL_JB_SLICKED_LIST_SLICK_CENTERPADDINGUNITS_DESC" filter="">
+                    <option value="0">px</option>
+                    <option value="1">%</option>
+                </field>
+            </fieldset>
+
+            <fieldset name="slick_cssEase_legend" label="TPL_JB_SLICKED_LIST_SLICK_CSSEASE_LEGEND">
+                <field name="slick_cssEase" type="text" default="ease" label="TPL_JB_SLICKED_LIST_SLICK_CSSEASE_LABEL" description="TPL_JB_SLICKED_LIST_SLICK_CSSEASE_DESC" class="inputbox" size="15" />
+            </fieldset>
+
+            <fieldset name="slick_customPaging_legend" label="TPL_JB_SLICKED_LIST_SLICK_CUSTOMPAGING_LEGEND">
+                <field name="slick_customPaging" type="text" default="" label="TPL_JB_SLICKED_LIST_SLICK_CUSTOMPAGING_LABEL" description="TPL_JB_SLICKED_LIST_SLICK_CUSTOMPAGING_DESC" class="inputbox" size="15" />
+            </fieldset>
+
+            <fieldset name="slick_dots_legend" label="TPL_JB_SLICKED_LIST_SLICK_DOTS_LEGEND">
+                <field name="slick_dots" type="list" default="false" label="TPL_JB_SLICKED_LIST_SLICK_DOTS_LABEL" description="TPL_JB_SLICKED_LIST_SLICK_DOTS_DESC" filter="">
+                    <option value="false">JFalse</option>
+                    <option value="true">JTrue</option>
+                </field>
+            </fieldset>
+
+            <fieldset name="slick_dotsClass_legend" label="TPL_JB_SLICKED_LIST_SLICK_DOTSCLASS_LEGEND">
+                <field name="slick_dotsClass" type="text" default="slick-dots" label="TPL_JB_SLICKED_LIST_SLICK_DOTSCLASS_LABEL" description="TPL_JB_SLICKED_LIST_SLICK_DOTSCLASS_DESC" class="inputbox" size="15" />
+            </fieldset>
+
+            <fieldset name="slick_appendDots_legend" label="TPL_JB_SLICKED_LIST_SLICK_APPENDDOTS_LEGEND">
+                <field name="slick_appendDots" type="text" default="$(element)" label="TPL_JB_SLICKED_LIST_SLICK_APPENDDOTS_LABEL" description="TPL_JB_SLICKED_LIST_SLICK_APPENDDOTS_DESC" class="inputbox" size="15" />
+            </fieldset>
+
+            <fieldset name="slick_draggable_legend" label="TPL_JB_SLICKED_LIST_SLICK_DRAGGABLE_LEGEND">
+                <field name="slick_draggable" type="list" default="true" label="TPL_JB_SLICKED_LIST_SLICK_DRAGGABLE_LABEL" description="TPL_JB_SLICKED_LIST_SLICK_DRAGGABLE_DESC" filter="">
+                    <option value="false">JFalse</option>
+                    <option value="true">JTrue</option>
+                </field>
+            </fieldset>
+
+            <fieldset name="slick_easing_legend" label="TPL_JB_SLICKED_LIST_SLICK_EASING_LEGEND">
+                <field name="slick_easing" type="text" default="linear" label="TPL_JB_SLICKED_LIST_SLICK_EASING_LABEL" description="TPL_JB_SLICKED_LIST_SLICK_EASING_DESC" class="inputbox" size="15" />
+            </fieldset>
+
+            <fieldset name="slick_edgeFriction_legend" label="TPL_JB_SLICKED_LIST_SLICK_EDGEFRICTION_LEGEND">
+                <field name="slick_edgeFriction" type="text" default="0.15" label="TPL_JB_SLICKED_LIST_SLICK_EDGEFRICTION_LABEL" description="TPL_JB_SLICKED_LIST_SLICK_EDGEFRICTION_DESC" class="inputbox" size="15" />
+            </fieldset>
+
+            <fieldset name="slick_fade_legend" label="TPL_JB_SLICKED_LIST_SLICK_FADE_LEGEND">
+                <field name="slick_fade" type="list" default="false" label="TPL_JB_SLICKED_LIST_SLICK_FADE_LABEL" description="TPL_JB_SLICKED_LIST_SLICK_FADE_DESC" filter="">
+                    <option value="false">JFalse</option>
+                    <option value="true">JTrue</option>
+                </field>
+            </fieldset>
+
+            <fieldset name="slick_focusOnSelect_legend" label="TPL_JB_SLICKED_LIST_SLICK_FOCUSONSELECT_LEGEND">
+                <field name="slick_focusOnSelect" type="list" default="true" label="TPL_JB_SLICKED_LIST_SLICK_FOCUSONSELECT_LABEL" description="TPL_JB_SLICKED_LIST_SLICK_FOCUSONSELECT_DESC" filter="">
+                    <option value="false">JFalse</option>
+                    <option value="true">JTrue</option>
+                </field>
+            </fieldset>
+
+            <fieldset name="slick_infinite_legend" label="TPL_JB_SLICKED_LIST_SLICK_INFINITE_LEGEND">
+                <field name="slick_infinite" type="list" default="true" label="TPL_JB_SLICKED_LIST_SLICK_INFINITE_LABEL" description="TPL_JB_SLICKED_LIST_SLICK_INFINITE_DESC" filter="">
+                    <option value="false">JFalse</option>
+                    <option value="true">JTrue</option>
+                </field>
+            </fieldset>
+
+            <fieldset name="slick_initialSlide_legend" label="TPL_JB_SLICKED_LIST_SLICK_INITIALSLIDE_LEGEND">
+                <field name="slick_initialSlide" type="text" default="0" label="TPL_JB_SLICKED_LIST_SLICK_INITIALSLIDE_LABEL" description="TPL_JB_SLICKED_LIST_SLICK_INITIALSLIDE_DESC" class="inputbox" size="15" />
+            </fieldset>
+
+            <fieldset name="slick_lazyLoad_legend" label="TPL_JB_SLICKED_LIST_SLICK_LAZYLOAD_LEGEND">
+                <field name="slick_lazyLoad" type="list" default="0" label="TPL_JB_SLICKED_LIST_SLICK_LAZYLOAD_LABEL" description="TPL_JB_SLICKED_LIST_SLICK_LAZYLOAD_DESC">
+                    <option value="ondemand">ondemand</option>
+                    <option value="progressive">progressive</option>
+                </field>
+            </fieldset>
+
+            <fieldset name="slick_mobileFirst_legend" label="TPL_JB_SLICKED_LIST_SLICK_MOBILEFIRST_LEGEND">
+                <field name="slick_mobileFirst" type="list" default="true" label="TPL_JB_SLICKED_LIST_SLICK_MOBILEFIRST_LABEL" description="TPL_JB_SLICKED_LIST_SLICK_MOBILEFIRST_DESC" filter="">
+                    <option value="false">JFalse</option>
+                    <option value="true">JTrue</option>
+                </field>
+            </fieldset>
+
+            <fieldset name="slick_pauseOnFocus_legend" label="TPL_JB_SLICKED_LIST_SLICK_PAUSEONFOCUS_LEGEND">
+                <field name="slick_pauseOnFocus" type="list" default="true" label="TPL_JB_SLICKED_LIST_SLICK_PAUSEONFOCUS_LABEL" description="TPL_JB_SLICKED_LIST_SLICK_PAUSEONFOCUS_DESC" filter="">
+                    <option value="false">JFalse</option>
+                    <option value="true">JTrue</option>
+                </field>
+            </fieldset>
+
+            <fieldset name="slick_pauseOnHover_legend" label="TPL_JB_SLICKED_LIST_SLICK_PAUSEONHOVER_LEGEND">
+                <field name="slick_pauseOnHover" type="list" default="true" label="TPL_JB_SLICKED_LIST_SLICK_PAUSEONHOVER_LABEL" description="TPL_JB_SLICKED_LIST_SLICK_PAUSEONHOVER_DESC" filter="">
+                    <option value="false">JFalse</option>
+                    <option value="true">JTrue</option>
+                </field>
+            </fieldset>
+
+            <fieldset name="slick_pauseOnDotsHover_legend" label="TPL_JB_SLICKED_LIST_SLICK_PAUSEONDOTSHOVER_LEGEND">
+                <field name="slick_pauseOnDotsHover" type="list" default="false" label="TPL_JB_SLICKED_LIST_SLICK_PAUSEONDOTSHOVER_LABEL" description="TPL_JB_SLICKED_LIST_SLICK_PAUSEONDOTSHOVER_DESC" filter="">
+                    <option value="false">JFalse</option>
+                    <option value="true">JTrue</option>
+                </field>
+            </fieldset>
+
+            <fieldset name="slick_respondTo_legend" label="TPL_JB_SLICKED_LIST_SLICK_RESPONDTO_LEGEND">
+                <field name="slick_respondTo" type="text" default="window" label="TPL_JB_SLICKED_LIST_SLICK_RESPONDTO_LABEL" description="TPL_JB_SLICKED_LIST_SLICK_RESPONDTO_DESC" class="inputbox" size="15" />
+            </fieldset>
+
+            <fieldset name="slick_responsive_legend" label="TPL_JB_SLICKED_LIST_SLICK_RESPONSIVE_LEGEND">
+                <field name="slick_responsive1Bp" type="text" default="768" label="TPL_JB_SLICKED_LIST_SLICK_RESPONSIVE1BP_LABEL" description="TPL_JB_SLICKED_LIST_SLICK_RESPONSIVE1BP_DESC"  size="15" />
+                <field name="slick_responsive1Settings" type="textarea" default="slidesToShow: 2," label="TPL_JB_SLICKED_LIST_SLICK_RESPONSIVE1SETTINGS_LABEL" description="TPL_JB_SLICKED_LIST_SLICK_RESPONSIVE1SETTINGS_DESC" rows="5" cols="30" filter="raw"/>
+                <field name="slick_responsive2Bp" type="text" default="992" label="TPL_JB_SLICKED_LIST_SLICK_RESPONSIVE2BP_LABEL" description="TPL_JB_SLICKED_LIST_SLICK_RESPONSIVE2BP_DESC"  size="15" />
+                <field name="slick_responsive2Settings" type="textarea" default="slidesToShow: 3," label="TPL_JB_SLICKED_LIST_SLICK_RESPONSIVE2SETTINGS_LABEL" description="TPL_JB_SLICKED_LIST_SLICK_RESPONSIVE2SETTINGS_DESC" rows="5" cols="30" filter="raw"/>
+                <field name="slick_responsive3Bp" type="text" default="1200" label="TPL_JB_SLICKED_LIST_SLICK_RESPONSIVE3BP_LABEL" description="TPL_JB_SLICKED_LIST_SLICK_RESPONSIVE3BP_DESC"  size="15" />
+                <field name="slick_responsive3Settings" type="textarea" default="" label="TPL_JB_SLICKED_LIST_SLICK_RESPONSIVE3SETTINGS_LABEL" description="TPL_JB_SLICKED_LIST_SLICK_RESPONSIVE3SETTINGS_DESC" rows="5" cols="30" filter="raw"/>
+                <field name="slick_responsive4Bp" type="text" default="" label="TPL_JB_SLICKED_LIST_SLICK_RESPONSIVE4BP_LABEL" description="TPL_JB_SLICKED_LIST_SLICK_RESPONSIVE4BP_DESC"  size="15" />
+                <field name="slick_responsive4Settings" type="textarea" default="" label="TPL_JB_SLICKED_LIST_SLICK_RESPONSIVE4SETTINGS_LABEL" description="TPL_JB_SLICKED_LIST_SLICK_RESPONSIVE4SETTINGS_DESC" rows="5" cols="30" filter="raw"/>
+                <field name="slick_responsive5Bp" type="text" default="" label="TPL_JB_SLICKED_LIST_SLICK_RESPONSIVE5BP_LABEL" description="TPL_JB_SLICKED_LIST_SLICK_RESPONSIVE5BP_DESC"  size="15" />
+                <field name="slick_responsive5Settings" type="textarea" default="" label="TPL_JB_SLICKED_LIST_SLICK_RESPONSIVE5SETTINGS_LABEL" description="TPL_JB_SLICKED_LIST_SLICK_RESPONSIVE5SETTINGS_DESC" rows="5" cols="30" filter="raw"/>
+            </fieldset>
+
+            <fieldset name="slick_rows_legend" label="TPL_JB_SLICKED_LIST_SLICK_ROWS_LEGEND">
+                <field name="slick_rows" type="text" default="1" label="TPL_JB_SLICKED_LIST_SLICK_ROWS_LABEL" description="TPL_JB_SLICKED_LIST_SLICK_ROWS_DESC" class="inputbox" size="15" />
+            </fieldset>
+
+            <fieldset name="slick_rtl_legend" label="TPL_JB_SLICKED_LIST_SLICK_RTL_LEGEND">
+                <field name="slick_rtl" type="list" default="false" label="TPL_JB_SLICKED_LIST_SLICK_RTL_LABEL" description="TPL_JB_SLICKED_LIST_SLICK_RTL_DESC" filter="">
+                    <option value="false">JFalse</option>
+                    <option value="true">JTrue</option>
+                </field>
+            </fieldset>
+
+            <fieldset name="slick_slide_legend" label="TPL_JB_SLICKED_LIST_SLICK_SLIDE_LEGEND">
+                <field name="slick_slide" type="text" default="" label="TPL_JB_SLICKED_LIST_SLICK_SLIDE_LABEL" description="TPL_JB_SLICKED_LIST_SLICK_SLIDE_DESC" class="inputbox" size="15" />
+            </fieldset>
+
+            <fieldset name="slick_slidesPerRow_legend" label="TPL_JB_SLICKED_LIST_SLICK_SLIDESPERROW_LEGEND">
+                <field name="slick_slidesPerRow" type="text" default="1" label="TPL_JB_SLICKED_LIST_SLICK_SLIDESPERROW_LABEL" description="TPL_JB_SLICKED_LIST_SLICK_SLIDESPERROW_DESC" class="inputbox" size="15" />
+            </fieldset>
+
+            <fieldset name="slick_slidesToShow_legend" label="TPL_JB_SLICKED_LIST_SLICK_SLIDESTOSHOW_LEGEND">
+                <field name="slick_slidesToShow" type="text" default="1" label="TPL_JB_SLICKED_LIST_SLICK_SLIDESTOSHOW_LABEL" description="TPL_JB_SLICKED_LIST_SLICK_SLIDESTOSHOW_DESC" class="inputbox" size="15" />
+            </fieldset>
+
+            <fieldset name="slick_slidesToScroll_legend" label="TPL_JB_SLICKED_LIST_SLICK_SLIDESTOSCROLL_LEGEND">
+                <field name="slick_slidesToScroll" type="text" default="1" label="TPL_JB_SLICKED_LIST_SLICK_SLIDESTOSCROLL_LABEL" description="TPL_JB_SLICKED_LIST_SLICK_SLIDESTOSCROLL_DESC" class="inputbox" size="15" />
+            </fieldset>
+
+            <fieldset name="slick_speed_legend" label="TPL_JB_SLICKED_LIST_SLICK_SPEED_LEGEND">
+                <field name="slick_speed" type="text" default="300" label="TPL_JB_SLICKED_LIST_SLICK_SPEED_LABEL" description="TPL_JB_SLICKED_LIST_SLICK_SPEED_DESC" class="inputbox" size="15" />
+            </fieldset>
+
+            <fieldset name="slick_swipe_legend" label="TPL_JB_SLICKED_LIST_SLICK_SWIPE_LEGEND">
+                <field name="slick_swipe" type="list" default="true" label="TPL_JB_SLICKED_LIST_SLICK_SWIPE_LABEL" description="TPL_JB_SLICKED_LIST_SLICK_SWIPE_DESC" filter="">
+                    <option value="false">JFalse</option>
+                    <option value="true">JTrue</option>
+                </field>
+            </fieldset>
+
+            <fieldset name="slick_swipeToSlide_legend" label="TPL_JB_SLICKED_LIST_SLICK_SWIPETOSLIDE_LEGEND">
+                <field name="slick_swipeToSlide" type="list" default="true" label="TPL_JB_SLICKED_LIST_SLICK_SWIPETOSLIDE_LABEL" description="TPL_JB_SLICKED_LIST_SLICK_SWIPETOSLIDE_DESC" filter="">
+                    <option value="false">JFalse</option>
+                    <option value="true">JTrue</option>
+                </field>
+            </fieldset>
+
+            <fieldset name="slick_touchMove_legend" label="TPL_JB_SLICKED_LIST_SLICK_TOUCHMOVE_LEGEND">
+                <field name="slick_touchMove" type="list" default="true" label="TPL_JB_SLICKED_LIST_SLICK_TOUCHMOVE_LABEL" description="TPL_JB_SLICKED_LIST_SLICK_TOUCHMOVE_DESC" filter="">
+                    <option value="false">JFalse</option>
+                    <option value="true">JTrue</option>
+                </field>
+            </fieldset>
+
+            <fieldset name="slick_touchThreshold_legend" label="TPL_JB_SLICKED_LIST_SLICK_TOUCHTHRESHOLD_LEGEND">
+                <field name="slick_touchThreshold" type="text" default="5" label="TPL_JB_SLICKED_LIST_SLICK_TOUCHTHRESHOLD_LABEL" description="TPL_JB_SLICKED_LIST_SLICK_TOUCHTHRESHOLD_DESC" class="inputbox" size="15" />
+            </fieldset>
+
+            <fieldset name="slick_useCSS_legend" label="TPL_JB_SLICKED_LIST_SLICK_USECSS_LEGEND">
+                <field name="slick_useCSS" type="list" default="true" label="TPL_JB_SLICKED_LIST_SLICK_USECSS_LABEL" description="TPL_JB_SLICKED_LIST_SLICK_USECSS_DESC" filter="">
+                    <option value="false">JFalse</option>
+                    <option value="true">JTrue</option>
+                </field>
+            </fieldset>
+
+            <fieldset name="slick_useTransform_legend" label="TPL_JB_SLICKED_LIST_SLICK_USETRANSFORM_LEGEND">
+                <field name="slick_useTransform" type="list" default="true" label="TPL_JB_SLICKED_LIST_SLICK_USETRANSFORM_LABEL" description="TPL_JB_SLICKED_LIST_SLICK_USETRANSFORM_DESC" filter="">
+                    <option value="false">JFalse</option>
+                    <option value="true">JTrue</option>
+                </field>
+            </fieldset>
+
+            <fieldset name="slick_variableWidth_legend" label="TPL_JB_SLICKED_LIST_SLICK_VARIABLEWIDTH_LEGEND">
+                <field name="slick_variableWidth" type="list" default="false" label="TPL_JB_SLICKED_LIST_SLICK_VARIABLEWIDTH_LABEL" description="TPL_JB_SLICKED_LIST_SLICK_VARIABLEWIDTH_DESC" filter="">
+                    <option value="false">JFalse</option>
+                    <option value="true">JTrue</option>
+                </field>
+            </fieldset>
+
+            <fieldset name="slick_vertical_legend" label="TPL_JB_SLICKED_LIST_SLICK_VERTICAL_LEGEND">
+                <field name="slick_vertical" type="list" default="false" label="TPL_JB_SLICKED_LIST_SLICK_VERTICAL_LABEL" description="TPL_JB_SLICKED_LIST_SLICK_VERTICAL_DESC" filter="">
+                    <option value="false">JFalse</option>
+                    <option value="true">JTrue</option>
+                </field>
+            </fieldset>
+
+            <fieldset name="slick_verticalSwiping_legend" label="TPL_JB_SLICKED_LIST_SLICK_VERTICALSWIPING_LEGEND">
+                <field name="slick_verticalSwiping" type="list" default="false" label="TPL_JB_SLICKED_LIST_SLICK_VERTICALSWIPING_LABEL" description="TPL_JB_SLICKED_LIST_SLICK_VERTICALSWIPING_DESC" filter="">
+                    <option value="false">JFalse</option>
+                    <option value="true">JTrue</option>
+                </field>
+            </fieldset>
+
+            <fieldset name="slick_waitForAnimate_legend" label="TPL_JB_SLICKED_LIST_SLICK_WAITFORANIMATE_LEGEND">
+                <field name="slick_waitForAnimate" type="list" default="true" label="TPL_JB_SLICKED_LIST_SLICK_WAITFORANIMATE_LABEL" description="TPL_JB_SLICKED_LIST_SLICK_WAITFORANIMATE_DESC" filter="">
+                    <option value="false">JFalse</option>
+                    <option value="true">JTrue</option>
+                </field>
+            </fieldset>
+
+            <fieldset name="slick_zIndex_legend" label="TPL_JB_SLICKED_LIST_SLICK_ZINDEX_LEGEND">
+                <field name="slick_zIndex" type="text" default="1000" label="TPL_JB_SLICKED_LIST_SLICK_ZINDEX_LABEL" description="TPL_JB_SLICKED_LIST_SLICK_ZINDEX_DESC" size="15" />
+            </fieldset>
+
+            <fieldset name="slick_jsCustom_legend" label="TPL_JB_SLICKED_LIST_SLICK_JSCUSTOM_LEGEND">
+                <field name="slick_jsCustom" type="textarea" default="" label="TPL_JB_SLICKED_LIST_SLICK_JSCUSTOM_LABEL" description="TPL_JB_SLICKED_LIST_SLICK_JSCUSTOM_DESC"  rows="5" cols="30" filter="raw"/>
+            </fieldset>
+
+        </fields>
+    </config>
+</extension>

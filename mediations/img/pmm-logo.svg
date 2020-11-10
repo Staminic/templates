@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 177.58 278.38">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+      }
+    </style>
+  </defs>
+  <title>pmm-logo</title>
+  <g id="Calque_2" data-name="Calque 2">
+    <g id="Calque_1-2" data-name="Calque 1">
+      <g>
+        <g>
+          <polygon class="cls-1" points="177.58 126.04 88.79 187.97 0 126.03 0 155.13 88.79 217.06 177.58 155.13 177.58 126.04"/>
+          <polygon class="cls-1" points="177.58 187.36 88.79 249.29 0 187.36 0 216.45 88.79 278.38 177.58 216.45 177.58 187.36"/>
+          <g>
+            <polygon class="cls-1" points="177.32 277.96 177.58 277.78 177.58 248.69 135.62 277.96 177.32 277.96"/>
+            <polygon class="cls-1" points="41.97 277.96 0 248.69 0 277.78 0.26 277.96 41.97 277.96"/>
+          </g>
+        </g>
+        <g>
+          <polygon class="cls-1" points="177.58 110.13 78.97 110.13 78.97 87.13 154.58 87.13 154.58 23 0 23 0 0 177.58 0 177.58 110.13"/>
+          <rect class="cls-1" x="34.39" y="46.3" width="23" height="125.25"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
