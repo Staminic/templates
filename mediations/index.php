@@ -27,7 +27,7 @@ include_once JPATH_THEMES.'/'.$this->template.'/logic.php';
     <header class="header">
       <nav class="navbar navbar-expand-xl bg-black d-flex">
         <a class="navbar-brand mr-lg-auto flex-lg-grow-1 " href="/">
-          <img src="<?php echo $tpath; ?>/img/pmm-logo.svg" class="mr-3" style="height: 38px;" alt="Logo de la Plateforme des médiations muséales" />
+          <img src="<?php echo $tpath; ?>/img/pmm-logo.svg" class="mr-1" style="height: 38px;" alt="Logo de la Plateforme des médiations muséales" />
           <span class="d-none d-sm-inline">Plateforme des médiations muséales</span>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapse" aria-controls="collapse" aria-expanded="false" aria-label="Toggle navigation">

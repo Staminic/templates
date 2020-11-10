@@ -20,7 +20,7 @@ $this->setGenerator(null);
 $doc->setMetadata('viewport', 'width=device-width, initial-scale=1, shrink-to-fit=no');
 
 // google fonts
-$doc->addStyleSheet('https://fonts.googleapis.com/css?family=Nunito:400,600,700|Oswald:400,500');
+$doc->addStyleSheet('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Oswald:wght@400;500&family=Roboto+Condensed&display=swap');
 
 // css
 $doc->addStyleSheet($tpath.'/build/main.css');
